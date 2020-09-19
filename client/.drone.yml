@@ -1,0 +1,18 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: FrontEnd Eval
+    image: node
+    commands:
+      - npm install -g enzyme
+      - npm install -g jest
+      - npm install -g enzyme-adapter-react-16
+      - git clone https://github.com/unsortedArray/Hackathon2308FECASES.git
+      - cd Hackathon2308FECASES
+      - cp -a ./ ../src/__tests__
+      - npm install -g enzyme
+      - npm install -g jest
+      - cd ..
+      - npm install
+      - npm run test --exit 

@@ -1,0 +1,35 @@
+{
+  "name": "hackathon2308-be",
+  "version": "1.0.0",
+  "description": "### please ensure that you have followed the proper db schema",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Newton-School/Hackathon2308-BE.git"
+  },
+  "author": "UA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Newton-School/Hackathon2308-BE/issues"
+  },
+  "homepage": "https://github.com/Newton-School/Hackathon2308-BE#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "dotenv": "^8.2.0",
+    "mocha": "^8.1.1",
+    "node-serialize": "0.0.4",
+    "nodemon": "^2.0.4"
+  }
+}
