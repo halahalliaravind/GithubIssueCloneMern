@@ -35,7 +35,7 @@ class AddIssueForm extends Component {
 
     trackPromise(
       axios
-        .post("/add-issue", {
+        .post("https://still-shore-50055.herokuapp.com/api/add-issue", {
           userName,
           data,
         })

@@ -36,7 +36,7 @@ class EditIssueForm extends Component {
 
     trackPromise(
       axios
-        .put(`/update-issue/${id}`, {
+        .put(`https://still-shore-50055.herokuapp.com/api/update-issue/${id}`, {
           userName,
           data,
           isClosed,

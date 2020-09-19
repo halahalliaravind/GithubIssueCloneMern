@@ -52,7 +52,7 @@ class IssuesPage extends Component {
     }
     trackPromise(
       axios
-        .get("/num-of-pages")
+        .get("https://still-shore-50055.herokuapp.com/api/num-of-pages")
         .then((resp) => {
           for (let i = 1; i <= resp.data.numOfPages; i++) {
             numOfPages.push(i);
@@ -77,7 +77,7 @@ class IssuesPage extends Component {
     }
     trackPromise(
       axios
-        .get(`/${isClosed}/num-of-pages`)
+        .get(`https://still-shore-50055.herokuapp.com/api/${isClosed}/num-of-pages`)
         .then((resp) => {
           for (let i = 1; i <= resp.data.numOfPages; i++) {
             numOfPages.push(i);
@@ -99,7 +99,7 @@ class IssuesPage extends Component {
     trackPromise(
       axios
         .get(
-          `/list-issues?offset=${(pageNumber - 1) * 5}`
+          `https://still-shore-50055.herokuapp.com/api/list-issues?offset=${(pageNumber - 1) * 5}`
         )
         .then((resp) => {
           this.setState({
@@ -118,7 +118,7 @@ class IssuesPage extends Component {
 
     trackPromise(
       axios
-        .delete(`/delete-issue/${id}`)
+        .delete(`https://still-shore-50055.herokuapp.com/api/delete-issue/${id}`)
         .then((resp) => {
           toast.success(
             `Issue "${resp.data.deleted.data}" deleted successfully`
@@ -157,7 +157,7 @@ class IssuesPage extends Component {
 
     trackPromise(
       axios
-        .put(`/update-issue-status/${id}`, {
+        .put(`https://still-shore-50055.herokuapp.com/api/update-issue-status/${id}`, {
           isClosed,
         })
         .then((resp) => {
@@ -188,7 +188,7 @@ class IssuesPage extends Component {
       trackPromise(
         axios
           .get(
-            `/${isClosed}/list-issues?offset=${
+            `https://still-shore-50055.herokuapp.com/api/${isClosed}/list-issues?offset=${
               (pageNumber - 1) * 5
             }`
           )
@@ -239,7 +239,7 @@ class IssuesPage extends Component {
           </div>
 
           <div className="all-issues-container">
-            {issues.map((issue) => (
+            {issues && issues.map((issue) => (
               <div key={issue._id} className="issue-body">
                 <div className="issue-data">{issue.data}</div>
                 <div className="issue-username-dropdown-wrapper">
