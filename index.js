@@ -1,5 +1,5 @@
 const express = require("express");
-const env = require("dotenv");
+// const env = require("dotenv");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 const issueRoutes = require("./src/routes/issueroute");
 
 //environment configuration
-env.config();
+// env.config();
 
 app.use(bodyParser());
 
