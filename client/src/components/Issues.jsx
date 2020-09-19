@@ -24,7 +24,7 @@ class IssuesPage extends Component {
   pageChange = (e) => {
     const pageNumber = e.target.id;
 
-    this.props.history.push(`http://localhost:5000/api/page/${pageNumber}`);
+    this.props.history.push(`http://localhost:8080/api/page/${pageNumber}`);
   };
 
   getSnapshotBeforeUpdate(prevProps) {
@@ -52,7 +52,7 @@ class IssuesPage extends Component {
     }
     trackPromise(
       axios
-        .get("http://localhost:5000/api/num-of-pages")
+        .get("http://localhost:8080/api/num-of-pages")
         .then((resp) => {
           for (let i = 1; i <= resp.data.numOfPages; i++) {
             numOfPages.push(i);
@@ -77,7 +77,7 @@ class IssuesPage extends Component {
     }
     trackPromise(
       axios
-        .get(`http://localhost:5000/api/${isClosed}/num-of-pages`)
+        .get(`http://localhost:8080/api/${isClosed}/num-of-pages`)
         .then((resp) => {
           for (let i = 1; i <= resp.data.numOfPages; i++) {
             numOfPages.push(i);
@@ -99,7 +99,7 @@ class IssuesPage extends Component {
     trackPromise(
       axios
         .get(
-          `http://localhost:5000/api/list-issues?offset=${(pageNumber - 1) * 5}`
+          `http://localhost:8080/api/list-issues?offset=${(pageNumber - 1) * 5}`
         )
         .then((resp) => {
           this.setState({
@@ -118,7 +118,7 @@ class IssuesPage extends Component {
 
     trackPromise(
       axios
-        .delete(`http://localhost:5000/api/delete-issue/${id}`)
+        .delete(`http://localhost:8080/api/delete-issue/${id}`)
         .then((resp) => {
           toast.success(
             `Issue "${resp.data.deleted.data}" deleted successfully`
@@ -157,7 +157,7 @@ class IssuesPage extends Component {
 
     trackPromise(
       axios
-        .put(`http://localhost:5000/api/update-issue-status/${id}`, {
+        .put(`http://localhost:8080/api/update-issue-status/${id}`, {
           isClosed,
         })
         .then((resp) => {
@@ -188,7 +188,7 @@ class IssuesPage extends Component {
       trackPromise(
         axios
           .get(
-            `http://localhost:5000/api/${isClosed}/list-issues?offset=${
+            `http://localhost:8080/api/${isClosed}/list-issues?offset=${
               (pageNumber - 1) * 5
             }`
           )

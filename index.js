@@ -3,6 +3,9 @@ const env = require("dotenv");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require("path");
+
+const port = process.env.PORT || 8080;
 
 const mongoose = require("mongoose");
 
@@ -15,9 +18,6 @@ app.use(bodyParser());
 
 //Handling Cors
 app.use(cors());
-
-//Routes Using
-app.use("/api", issueRoutes);
 
 // mongodb connection
 mongoose
@@ -33,9 +33,19 @@ mongoose
     console.log("MongoDB SuccessFully Connected!!");
   });
 
+//Routes Using
+app.use("/api", issueRoutes);
+
+//Static file to get
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("/client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
 // Server listen
-app.listen(process.env.PORT, () =>
-  console.log(`Serveer is running on port ${process.env.PORT}!`)
-);
+app.listen(port, () => console.log(`Serveer is running on port ${port}!`));
 
 module.exports = app;
