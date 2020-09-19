@@ -37,7 +37,7 @@ mongoose
 app.use("/api", issueRoutes);
 
 //Static file to get
-
+//checking
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("/client/build"));
   app.get("*", (req, res) => {
