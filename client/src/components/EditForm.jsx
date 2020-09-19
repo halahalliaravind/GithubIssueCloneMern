@@ -36,7 +36,7 @@ class EditIssueForm extends Component {
 
     trackPromise(
       axios
-        .put(`http://localhost:8080/api/update-issue/${id}`, {
+        .put(`/update-issue/${id}`, {
           userName,
           data,
           isClosed,

@@ -35,7 +35,7 @@ class AddIssueForm extends Component {
 
     trackPromise(
       axios
-        .post("http://localhost:8080/api/add-issue", {
+        .post("/add-issue", {
           userName,
           data,
         })
